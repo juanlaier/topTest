@@ -93,11 +93,11 @@ void CTopControl::setWindowOnTop(int index, bool bOnTop)
     if(index >= 0 && index < _arrWindows.length()){
         for(auto i : _arrWindows){
             HWND hWnd = (HWND)i.second;
-            ::SetWindowPos(hWnd, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOSIZE);
+            ::SetWindowPos(hWnd, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE);
         }
 
         HWND hWnd = (HWND)_arrWindows.at(index).second;
-        SetWindowPos(hWnd,HWND_TOPMOST,0,0,0,0,SWP_NOSIZE);
+        SetWindowPos(hWnd,HWND_TOPMOST,0,0,0,0,SWP_NOSIZE | SWP_NOMOVE);
     }
 }
 
